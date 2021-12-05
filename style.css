@@ -1,0 +1,178 @@
+*::after, ::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 160px;
+    --mark-size: calc(var(--cell-size) * .97);
+}
+
+body {
+    color: white;
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    margin-top: 7em;
+    align-content: center;
+}
+
+.container h1 {
+    font-size: 80px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.container h1, .name-header {
+    text-align: center;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.name-form {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    width: 100px;
+    justify-content: center;
+    align-content: center;
+}
+
+.gameboard-container {
+    margin-top: 80px;
+}
+
+.game--container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+    justify-content: center;
+    align-content: center;
+}
+
+.player-name {
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+    gap: 100px;
+    line-height: .1;
+}
+
+.versus {
+    font-size: 40px;
+}
+
+.restart-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* board */
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 2px solid white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+    border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+
+/* x's and o's */
+
+.cell.x::before,
+.cell.x::after,
+.cell.circle:before{
+    background-color: white;
+}
+
+.game--container.x .cell:not(.x):not(.circle):hover:before,
+.game--container.x .cell:not(.x):not(.circle):hover:after,
+.game--container.circle .cell:not(.x):not(.circle):hover::before {
+    background-color: #5C5C5C;
+}
+
+
+.cell.x::before,
+ .cell.x::after,
+ .game--container.x .cell:not(.x):not(.circle):hover:before,
+ .game--container.x .cell:not(.x):not(.circle):hover:after{
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+}
+
+.cell.x::before,
+.game--container.x .cell:not(.x):not(.circle):hover:before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after,
+.game--container.x .cell:not(.x):not(.circle):hover:after{
+    transform: rotate(-45deg);
+}
+
+/* circle */
+.cell.circle::before,
+ .cell.circle::after,
+ .game--container.circle .cell:not(.x):not(.circle):hover::before,
+ .game--container.circle .cell:not(.x):not(.circle):hover::after  {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cell.circle::before,
+.game--container.circle .cell:not(.x):not(.circle):hover::before {
+    width: calc(var(--mark-size) * .84);
+    height: calc(var(--mark-size) * .84);
+}
+
+.cell.circle::after,
+.game--container.circle .cell:not(.x):not(.circle):hover::after {
+    width: calc(var(--mark-size) * .6);
+    height: calc(var(--mark-size) * .6);
+    background-color: black;
+}
