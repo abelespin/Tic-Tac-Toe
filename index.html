@@ -16,59 +16,54 @@
             <div class="name-header">
                 <strong>Players enter name!</strong>
             </div>
-            <div class="name-form">
+            <form class="name-form" id="name-form">
                 <div class="playerNameInput">
                     <label for="player1">Player 1 name (x)</label>
-                    <input type="text" id="name" placeholder="Enter Name" class="form-input">
+                    <input type="text" id="name1Form" placeholder="Enter Name" class="form-input">
                 </div>
                 <div class="playerNameInput">
                     <label for="player2">Player 2 name (o)</label>
-                    <input type="text" id="name" placeholder="Enter Name" class="form-input">
+                    <input type="text" id="name2Form" placeholder="Enter Name" class="form-input">
                 </div>
+
                 <div>
-                    <input type="submit" value="Submit" class="submit-btn">
+                    <button class="btn">Submit</button>
                 </div>
-
-            </div>
+            </form>
         </div>
+    </div>
 
 
-        <div class="gameboard-container">
-            <div class="game--container">
-                <div data-cell-index="0" class="cell"></div>
-                <div data-cell-index="1" class="cell"></div>
-                <div data-cell-index="2" class="cell"></div>
-                <div data-cell-index="3" class="cell"></div>
-                <div data-cell-index="4" class="cell"></div>
-                <div data-cell-index="5" class="cell"></div>
-                <div data-cell-index="6" class="cell"></div>
-                <div data-cell-index="7" class="cell"></div>
-                <div data-cell-index="8" class="cell"></div>
-            </div>
-            <h2 class="game--status"></h2>
+    <div class="gameboard-container">
+        <div class="game--container" id="game--container">
+            <div data-cell-index="0" class="cell"></div>
+            <div data-cell-index="1" class="cell"></div>
+            <div data-cell-index="2" class="cell"></div>
+            <div data-cell-index="3" class="cell"></div>
+            <div data-cell-index="4" class="cell"></div>
+            <div data-cell-index="5" class="cell"></div>
+            <div data-cell-index="6" class="cell"></div>
+            <div data-cell-index="7" class="cell"></div>
+            <div data-cell-index="8" class="cell"></div>
         </div>
+        <h2 class="game--status"></h2>
+    </div>
 
 
-        <div class="score-container">
-            <div class="player-name">
-                <p class="player1"><span class="p1Name">player 1</span> (x)</p>
-                <p class="versus">vs</p>
-                <p class="player2"><span class="p2Name">player 2</span> (o)</p>
-            </div>
-
-            <div class="restart-btn">
-                <button class="game--restart">Restart Game</button>
-            </div>
+    <div class="score-container">
+        <div class="player-name" id="player-name">
+            <p class="player1"><span class="p1NameDOM" id="p1NameDOM">Player 1</span> (x)</p>
+            <p class="versus">vs</p>
+            <p class="player2"><span class="p2NameDOM" id="p2NameDOM">Player 2</span> (o)</p>
         </div>
+        <div class="player-name2" id="player-name2"></div>
+        <div class="winning-message" id="winning-message"></div>
 
-
-
-
-
-
-        <div class="winner-container">
-
+        <div class="endGameBtns" id="endGameBtns">
+            <button class="game--restart" id="game--restart">Restart Game</button>
+            <button id="game--newRound">New Round!</button>
         </div>
+    </div>
     </div>
 
     <script src="app.js"></script>
